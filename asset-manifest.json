@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/simpleNoteApp/static/css/main.fc67a6da.css",
+    "main.js": "/simpleNoteApp/static/js/main.e356bca8.js",
+    "index.html": "/simpleNoteApp/index.html",
+    "main.fc67a6da.css.map": "/simpleNoteApp/static/css/main.fc67a6da.css.map",
+    "main.e356bca8.js.map": "/simpleNoteApp/static/js/main.e356bca8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fc67a6da.css",
+    "static/js/main.e356bca8.js"
+  ]
+}
