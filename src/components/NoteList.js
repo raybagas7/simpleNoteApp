@@ -1,6 +1,7 @@
 import React from 'react';
 import ActiveNotes from './ActiveNotes';
 import ArchivedNotes from './ArchivedNotes';
+import ButtonInfo from './ButtonInfo';
 
 const NoteList = ({
   notes,
@@ -11,6 +12,7 @@ const NoteList = ({
 }) => {
   return (
     <div>
+      <ButtonInfo />
       <ActiveNotes
         notes={notes}
         onDeleteNote={onDeleteNote}

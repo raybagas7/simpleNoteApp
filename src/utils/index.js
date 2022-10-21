@@ -21,24 +21,22 @@ const getInitialData = () => {
   return notes;
 };
 
-const addNote = ({ title, note }) => {
-  if (note === '') {
-    note = <i>Not Described</i>;
+const addNote = (noteData) => {
+  if (noteData.note === '') {
+    noteData.note = <i>Not Described</i>;
   }
 
-  const newNotes = [
+  notes = [
     ...notes,
     {
       id: +new Date(),
-      title,
-      note,
+      title: noteData.title,
+      note: noteData.note,
       date: +new Date(),
       archived: false,
       edit: false,
     },
   ];
-
-  return newNotes;
 };
 
 const deleteNote = (id) => {

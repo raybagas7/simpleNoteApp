@@ -1,4 +1,5 @@
 import React from 'react';
+import ButtonInfo from './ButtonInfo';
 import NoteItem from './NoteItem';
 
 class ActiveNotes extends React.Component {
@@ -44,31 +45,34 @@ class ActiveNotes extends React.Component {
         <p>No Active Notes</p>
       </div>
     ) : (
-      <div className="notes-list__contain-active">
-        <h3>Active Notes</h3>
-        <form className="search-note ">
-          <input
-            type="text"
-            placeholder="Search by title"
-            value={this.state.search}
-            onChange={this.onSearchChangeHandler}
-          />
-        </form>
-        <div className="notes-list">
-          {this.onSearchNotesHandler().map((note) => (
-            <NoteItem
-              key={note.id}
-              id={note.note}
-              edit={note.edit}
-              onDeleteNote={this.props.onDeleteNote}
-              onEditNote={this.props.onEditNote}
-              editSubmitNote={this.props.editSubmitNote}
-              onChecklistNote={this.props.onChecklistNote}
-              {...note}
+      <>
+        <ButtonInfo />
+        <div className="notes-list__contain-active">
+          <h3>Active Notes</h3>
+          <form className="search-note ">
+            <input
+              type="text"
+              placeholder="Search by title"
+              value={this.state.search}
+              onChange={this.onSearchChangeHandler}
             />
-          ))}
+          </form>
+          <div className="notes-list">
+            {this.onSearchNotesHandler().map((note) => (
+              <NoteItem
+                key={note.id}
+                id={note.note}
+                edit={note.edit}
+                onDeleteNote={this.props.onDeleteNote}
+                onEditNote={this.props.onEditNote}
+                editSubmitNote={this.props.editSubmitNote}
+                onChecklistNote={this.props.onChecklistNote}
+                {...note}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }

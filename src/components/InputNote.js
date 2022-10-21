@@ -32,12 +32,13 @@ class InputNote extends React.Component {
 
   onSubmitNoteEventHandler(event) {
     event.preventDefault();
-    this.props.addNotes(this.state);
+    this.props.addNote(this.state);
   }
 
   render() {
     return (
       <>
+        <h2>Add Note</h2>
         <form onSubmit={this.onSubmitNoteEventHandler} className="notes-input">
           <p className="remaining-characters">
             Remaining characters:{' '}
