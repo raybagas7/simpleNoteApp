@@ -1,7 +1,13 @@
 import React from 'react';
 import InputNote from './InputNote';
 import NoteList from './NoteList';
-import { getInitialData } from '../utils/index';
+import {
+  getInitialData,
+  deleteNote,
+  archiveNote,
+  editNote,
+  editSubmitNote,
+} from '../utils/index';
 import ButtonInfo from './ButtonInfo';
 
 class NotesApp extends React.Component {
@@ -41,39 +47,29 @@ class NotesApp extends React.Component {
   }
 
   onDeleteNoteHandler = (id) => {
-    const notes = this.state.notes.filter((note) => note.id !== id);
-    this.setState({ notes });
+    deleteNote(id);
+
+    this.setState(() => {
+      return {
+        notes: getInitialData(),
+      };
+    });
   };
 
   onChecklistNoteHandler = (id) => {
-    const findNote = this.state.notes.findIndex((note) => note.id === id);
-    const copyNotes = this.state.notes;
-    const newNotes = (copyNotes[findNote].archived =
-      !copyNotes[findNote].archived);
+    const newNotes = archiveNote(id);
+
     this.setState({ newNotes });
   };
 
   onEditNoteHandler = (id) => {
-    const findNote = this.state.notes.findIndex((note) => note.id === id);
-    const copyNotes = this.state.notes;
-    const newNotes = (copyNotes[findNote].edit = true);
+    const newNotes = editNote(id);
+
     this.setState({ newNotes });
   };
 
   onSubmitEditNoteHandler({ id, title, note, archived }) {
-    if (note === '') {
-      note = <i>Not Described</i>;
-    }
-    const findNote = this.state.notes.findIndex((note) => note.id === id);
-    const copyNotes = this.state.notes;
-    const newNotesSubmitted = (copyNotes[findNote] = {
-      id: id,
-      title: title,
-      note: note,
-      date: new Date(),
-      archived: archived,
-      edit: false,
-    });
+    const newNotesSubmitted = editSubmitNote(id, title, note, archived);
     this.setState({ newNotesSubmitted });
   }
 

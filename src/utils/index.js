@@ -1,4 +1,4 @@
-const getInitialData = () => [
+let notes = [
   {
     id: 1,
     title: 'Example1',
@@ -16,6 +16,67 @@ const getInitialData = () => [
     edit: false,
   },
 ];
+
+const getInitialData = () => {
+  return notes;
+};
+
+const addNote = ({ title, note }) => {
+  if (note === '') {
+    note = <i>Not Described</i>;
+  }
+
+  const newNotes = [
+    ...notes,
+    {
+      id: +new Date(),
+      title,
+      note,
+      date: +new Date(),
+      archived: false,
+      edit: false,
+    },
+  ];
+
+  return newNotes;
+};
+
+const deleteNote = (id) => {
+  notes = notes.filter((note) => note.id !== id);
+};
+
+const archiveNote = (id) => {
+  const findNote = notes.findIndex((note) => note.id === id);
+  const copyNotes = notes;
+  const newNotes = (copyNotes[findNote].archived =
+    !copyNotes[findNote].archived);
+  return newNotes;
+};
+
+const editNote = (id) => {
+  const findNote = notes.findIndex((note) => note.id === id);
+  const copyNotes = notes;
+  const newNotes = (copyNotes[findNote].edit = true);
+  return newNotes;
+};
+
+const editSubmitNote = (id, title, note, archived) => {
+  if (note === '') {
+    note = <i>Not Described</i>;
+  }
+  const findNote = notes.findIndex((note) => note.id === id);
+  const copyNotes = notes;
+  const newNotesSubmitted = (copyNotes[findNote] = {
+    id: id,
+    title: title,
+    note: note,
+    date: new Date(),
+    archived: archived,
+    edit: false,
+  });
+
+  return newNotesSubmitted;
+};
 
 const showFormattedDate = (date) => {
   const options = {
@@ -54,4 +115,13 @@ const showFormattedDateEdited = (date) => {
   );
 };
 
-export { getInitialData, showFormattedDate, showFormattedDateEdited };
+export {
+  getInitialData,
+  showFormattedDate,
+  showFormattedDateEdited,
+  deleteNote,
+  archiveNote,
+  editNote,
+  editSubmitNote,
+  addNote,
+};
