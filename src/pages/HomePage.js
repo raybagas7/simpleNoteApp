@@ -91,7 +91,10 @@ class HomePage extends React.Component {
     return (
       <div>
         <Link to="/add">
-          <div class="float"></div>
+          <div class="float-add"></div>
+        </Link>
+        <Link to="/archived">
+          <div class="float-archived"></div>
         </Link>
 
         <ActiveNotes

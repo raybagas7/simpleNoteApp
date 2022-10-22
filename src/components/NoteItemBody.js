@@ -5,6 +5,7 @@ import EditNoteButton from './EditNoteButton';
 import ChecklistNoteButton from './ChecklistNoteButton';
 import { showFormattedDate } from '../utils/index';
 import { Link } from 'react-router-dom';
+import parser from 'html-react-parser';
 
 const NoteItemBody = ({
   id,
@@ -33,7 +34,7 @@ const NoteItemBody = ({
           <Link to={`/notes/${id}`}>{title}</Link>
         </h3>
         <p className="notes-item__date">{showFormattedDate(date)}</p>
-        <p className="notes-item__note">{note}</p>
+        <p className="notes-item__note">{parser(note)}</p>
         <div className="notes-item__body-button">
           <DeleteNoteButton id={id} onDeleteNote={onDeleteNote} />
           <EditNoteButton id={id} onEditNote={onEditNote} />

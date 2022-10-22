@@ -5,7 +5,7 @@ class InputNote extends React.Component {
     super(props);
     this.state = {
       title: '',
-      note: '',
+      note: ' ',
       remain_char: 50,
     };
 
@@ -25,7 +25,7 @@ class InputNote extends React.Component {
   onChangeNoteHandler(event) {
     this.setState(() => {
       return {
-        note: event.target.value,
+        note: event.target.innerHTML,
       };
     });
   }
@@ -52,20 +52,13 @@ class InputNote extends React.Component {
             maxLength={this.state.remain_char}
             required
           />
-          <textarea
-            rows="4"
-            cols="50"
-            name="note"
-            placeholder="Type your note"
-            value={this.state.note}
-            onChange={this.onChangeNoteHandler}
-          />
-          {/* <div
+          <div
             className="add-new-page__input__body"
-            data-placeholder="Sebenarnya saya adalah ...."
+            data-placeholder="Type note...."
             contentEditable
+            required
             onInput={this.onChangeNoteHandler}
-          /> */}
+          />
           <button type="submit">Add Note</button>
         </form>
       </>

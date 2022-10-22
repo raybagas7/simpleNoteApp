@@ -92,7 +92,7 @@ const editNote = (id) => {
 
 const editSubmitNote = (id, title, note, archived) => {
   if (note === '') {
-    note = <i>Not Described</i>;
+    note = ' ';
   }
   const findNote = notes.findIndex((note) => note.id === id);
   const copyNotes = notes;

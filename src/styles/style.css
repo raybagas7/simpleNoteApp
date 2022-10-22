@@ -13,6 +13,18 @@ img {
   width: 100%;
 }
 
+.apps-name a {
+  text-decoration: none;
+  color: black;
+  font-weight: 800;
+}
+
+.apps-name a:hover {
+  text-decoration: none;
+  color: grey;
+  font-weight: 800;
+}
+
 .notes-app {
   margin: 0 auto;
   padding: 16px;
@@ -334,6 +346,7 @@ img {
   resize: none;
   display: block;
   width: 100%;
+  height: 100px;
   padding: 8px;
   margin: 8px 0;
   font-family: 'Inter', sans-serif;
@@ -372,17 +385,53 @@ img {
   font-family: 'Inter', sans-serif;
 }
 
-.float {
+.float-add {
   position: fixed;
   width: 60px;
   height: 60px;
   bottom: 25px;
   right: 25px;
-  background-color: white;
+  background-color: greenyellow;
   color: #fff;
   border-radius: 50px;
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.float-archived {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 25px;
+  left: 25px;
+  background-color: black;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.float-add:hover {
+  animation-name: effect-round-button;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.float-archived:hover {
+  animation-name: effect-round-button;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes effect-round-button {
+  0% {
+    opacity: 100%;
+    bottom: 25px;
+  }
+  100% {
+    opacity: 100%;
+    bottom: 30px;
+  }
 }
 
 .notes-item__body-detailed h1 {
