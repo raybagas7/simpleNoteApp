@@ -94,12 +94,15 @@ class HomePage extends React.Component {
       <div>
         <Link to="/simpleNoteApp/add">
           <div className="float-add">
-            <AiOutlinePlus className="add-icon" />
+            <AiOutlinePlus className="add-icon" title="Add Note" />
           </div>
         </Link>
         <Link to="/simpleNoteApp/archived">
           <div className="float-archived">
-            <GiArchiveResearch className="archived-icon" />
+            <GiArchiveResearch
+              className="archived-icon"
+              title="Archived Notes"
+            />
           </div>
         </Link>
 

@@ -205,7 +205,7 @@ img {
   text-align: center;
 }
 .notes-list__empty-archived {
-  max-width: 64%;
+  max-width: 90%;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 0 auto;
@@ -475,11 +475,6 @@ img {
     opacity: 100%;
     bottom: 30px;
   }
-}
-
-.notes-item__body-detailed h1 {
-  text-align: left;
-  margin-bottom: 5px;
 }
 
 .notes-item__body-detailed h1 {
