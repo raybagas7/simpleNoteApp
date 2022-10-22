@@ -5,6 +5,7 @@ import AddPage from '../pages/AddPage';
 import ArchivedPage from '../pages/ArchivedPage';
 import DetailPage from '../pages/DetailedPage';
 import { Link } from 'react-router-dom';
+import NotFoundPage from '../pages/NotFoundPage';
 
 const NotesApp = () => {
   return (
@@ -16,6 +17,8 @@ const NotesApp = () => {
       </header>
       <main>
         <Routes>
+          <Route path="/*" element={<NotFoundPage />} />
+          <Route path="/simpleNoteApp/*" element={<NotFoundPage />} />
           <Route path="/simpleNoteApp/" element={<HomePage />} />
           <Route path="/simpleNoteApp/add" element={<AddPage />} />
           <Route path="/simpleNoteApp/archived" element={<ArchivedPage />} />

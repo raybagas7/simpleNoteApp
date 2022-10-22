@@ -19,7 +19,7 @@ class DetailedPage extends React.Component {
 
   render() {
     if (this.state.note === null) {
-      return <p>Note not found!</p>;
+      return <h1>Note not found!</h1>;
     }
 
     return (

@@ -35,7 +35,7 @@ const NoteItemBody = ({
           <Link to={`/simpleNoteApp/notes/${id}`}>{title}</Link>
         </h3>
         <p className="notes-item__date">{showFormattedDate(date)}</p>
-        <p className="notes-item__note">{parser(note)}</p>
+        <div className="notes-item__note">{parser(note)}</div>
         <div className="notes-item__body-button">
           <DeleteNoteButton id={id} onDeleteNote={onDeleteNote} />
           <EditNoteButton id={id} onEditNote={onEditNote} />
