@@ -345,7 +345,8 @@ img {
   resize: none;
   display: block;
   width: 100%;
-  height: 100px;
+  min-height: 100px;
+  height: fit-content;
   padding: 8px;
   margin: 8px 0;
   font-family: 'Inter', sans-serif;
