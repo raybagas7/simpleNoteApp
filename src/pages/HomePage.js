@@ -6,7 +6,7 @@ import {
   editNote,
   editSubmitNote,
 } from '../utils/index';
-
+import { Link } from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom';
 import ActiveNotes from '../components/ActiveNotes';
 
@@ -90,6 +90,10 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
+        <Link to="/add">
+          <div class="float"></div>
+        </Link>
+
         <ActiveNotes
           notes={this.state.notes}
           onDeleteNote={this.onDeleteNoteHandler}

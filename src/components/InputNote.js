@@ -60,6 +60,12 @@ class InputNote extends React.Component {
             value={this.state.note}
             onChange={this.onChangeNoteHandler}
           />
+          {/* <div
+            className="add-new-page__input__body"
+            data-placeholder="Sebenarnya saya adalah ...."
+            contentEditable
+            onInput={this.onChangeNoteHandler}
+          /> */}
           <button type="submit">Add Note</button>
         </form>
       </>

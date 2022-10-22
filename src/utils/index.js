@@ -1,18 +1,50 @@
 let notes = [
   {
-    id: 1,
-    title: 'Example1',
-    note: "You can try to delete, edit, or move it to 'Archived Notes' by checklist it to the bottom",
-    date: '2022-08-10T04:27:34.572Z',
+    id: 'notes-1',
+    title: 'Babel',
+    note: 'Babel merupakan tools open-source yang digunakan untuk mengubah sintaks ECMAScript 2015+ menjadi sintaks yang didukung oleh JavaScript engine versi lama. Babel sering dipakai ketika kita menggunakan sintaks terbaru termasuk sintaks JSX.',
+    date: '2022-04-14T04:27:34.572Z',
     archived: false,
     edit: false,
   },
   {
-    id: 2,
-    title: 'Example2',
-    note: "You can try to delete, edit, or move it to 'Active Notes' by undo it to the top",
-    date: '2022-08-10T04:27:34.572Z',
-    archived: true,
+    id: 'notes-2',
+    title: 'Functional Component',
+    note: 'Functional component merupakan React component yang dibuat menggunakan fungsi JavaScript. Agar fungsi JavaScript dapat disebut component ia harus mengembalikan React element dan dipanggil layaknya React component.',
+    date: '2022-04-14T04:27:34.572Z',
+    archived: false,
+    edit: false,
+  },
+  {
+    id: 'notes-3',
+    title: 'Modularization',
+    note: 'Dalam konteks pemrograman JavaScript, modularization merupakan teknik dalam memecah atau menggunakan kode dalam berkas JavaScript secara terpisah berdasarkan tanggung jawabnya masing-masing.',
+    date: '2022-04-14T04:27:34.572Z',
+    archived: false,
+    edit: false,
+  },
+  {
+    id: 'notes-4',
+    title: 'Lifecycle',
+    note: 'Dalam konteks React component, lifecycle merupakan kumpulan method yang menjadi siklus hidup mulai dari component dibuat (constructor), dicetak (render), pasca-cetak (componentDidMount), dan sebagainya. ',
+    date: '2022-04-14T04:27:34.572Z',
+    archived: false,
+    edit: false,
+  },
+  {
+    id: 'notes-5',
+    title: 'ESM',
+    note: 'ESM (ECMAScript Module) merupakan format modularisasi standar JavaScript.',
+    date: '2022-04-14T04:27:34.572Z',
+    archived: false,
+    edit: false,
+  },
+  {
+    id: 'notes-6',
+    title: 'Module Bundler',
+    note: 'Dalam konteks pemrograman JavaScript, module bundler merupakan tools yang digunakan untuk menggabungkan seluruh modul JavaScript yang digunakan oleh aplikasi menjadi satu berkas.',
+    date: '2022-04-14T04:27:34.572Z',
+    archived: false,
     edit: false,
   },
 ];
@@ -29,7 +61,7 @@ const addNote = (noteData) => {
   notes = [
     ...notes,
     {
-      id: +new Date(),
+      id: `notes-${+new Date()}`,
       title: noteData.title,
       note: noteData.note,
       date: +new Date(),
@@ -113,6 +145,30 @@ const showFormattedDateEdited = (date) => {
   );
 };
 
+const getNote = (id) => {
+  if (!id) {
+    return null;
+  }
+
+  const filteredNotes = notes.filter((movie) => movie.id === id);
+
+  if (!filteredNotes.length) {
+    return null;
+  }
+
+  return filteredNotes[0];
+};
+
+const searchNotes = (keyword) => {
+  const searchNotesActiveNotes = notes.filter(
+    (note) => note.archived === false
+  );
+  const filterByName = searchNotesActiveNotes.filter((note) =>
+    note.title.toLowerCase().includes(keyword.toLowerCase())
+  );
+  return filterByName;
+};
+
 export {
   getInitialData,
   showFormattedDate,
@@ -122,4 +178,6 @@ export {
   editNote,
   editSubmitNote,
   addNote,
+  getNote,
+  searchNotes,
 };

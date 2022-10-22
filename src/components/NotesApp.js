@@ -1,16 +1,10 @@
 import React from 'react';
 import HomePage from '../pages/HomePage';
 import { Route, Routes } from 'react-router-dom';
-// import {
-//   getInitialData,
-//   deleteNote,
-//   archiveNote,
-//   editNote,
-//   editSubmitNote,
-// } from '../utils/index';
 import Navigation from './Navigation';
 import AddPage from '../pages/AddPage';
 import ArchivedPage from '../pages/ArchivedPage';
+import DetailPage from '../pages/DetailedPage';
 
 const NotesApp = () => {
   return (
@@ -24,6 +18,7 @@ const NotesApp = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/add" element={<AddPage />} />
           <Route path="/archived" element={<ArchivedPage />} />
+          <Route path="/notes/:id" element={<DetailPage />} />
         </Routes>
       </main>
     </div>

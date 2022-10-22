@@ -1,11 +1,39 @@
 import React from 'react';
 import NoteItem from './NoteItem';
+import { useSearchParams } from 'react-router-dom';
 
+const ArchivedNotesWrapper = ({
+  notes,
+  editSubmitNote,
+  onDeleteNote,
+  onEditNote,
+  onChecklistNote,
+}) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const title = searchParams.get('title');
+
+  const changeSearchParams = (keyword) => {
+    setSearchParams({ title: keyword });
+  };
+
+  return (
+    <ArchivedNotes
+      onSearch={changeSearchParams}
+      activeKeyword={title}
+      notes={notes}
+      onDeleteNote={onDeleteNote}
+      onEditNote={onEditNote}
+      editSubmitNote={editSubmitNote}
+      onChecklistNote={onChecklistNote}
+    />
+  );
+};
 class ArchivedNotes extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      search: '',
+      search: props.activeKeyword ? props.activeKeyword : '',
     };
     this.onSearchChangeHandler = this.onSearchChangeHandler.bind(this);
     this.onSearchNotesHandler = this.onSearchNotesHandler.bind(this);
@@ -27,6 +55,8 @@ class ArchivedNotes extends React.Component {
         search: event.target.value,
       };
     });
+
+    this.props.onSearch(event.target.value);
   }
 
   render() {
@@ -72,4 +102,4 @@ class ArchivedNotes extends React.Component {
     );
   }
 }
-export default ArchivedNotes;
+export default ArchivedNotesWrapper;
