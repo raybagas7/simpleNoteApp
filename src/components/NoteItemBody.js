@@ -6,6 +6,7 @@ import ChecklistNoteButton from './ChecklistNoteButton';
 import { showFormattedDate } from '../utils/index';
 import { Link } from 'react-router-dom';
 import parser from 'html-react-parser';
+import PropTypes from 'prop-types';
 
 const NoteItemBody = ({
   id,
@@ -31,18 +32,34 @@ const NoteItemBody = ({
     <div className="notes-item__body">
       <article>
         <h3 className="notes-item__title">
-          <Link to={`/notes/${id}`}>{title}</Link>
+          <Link to={`/simpleNoteApp/notes/${id}`}>{title}</Link>
         </h3>
         <p className="notes-item__date">{showFormattedDate(date)}</p>
         <p className="notes-item__note">{parser(note)}</p>
         <div className="notes-item__body-button">
           <DeleteNoteButton id={id} onDeleteNote={onDeleteNote} />
           <EditNoteButton id={id} onEditNote={onEditNote} />
-          <ChecklistNoteButton id={id} onChecklistNote={onChecklistNote} />
+          <ChecklistNoteButton
+            id={id}
+            archived={archived}
+            onChecklistNote={onChecklistNote}
+          />
         </div>
       </article>
     </div>
   );
 };
 
+NoteItemBody.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  date: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  archived: PropTypes.bool.isRequired,
+  note: PropTypes.string.isRequired,
+  edit: PropTypes.bool.isRequired,
+  editSubmitNote: PropTypes.func.isRequired,
+  onDeleteNote: PropTypes.func.isRequired,
+  onEditNote: PropTypes.func.isRequired,
+  onChecklistNote: PropTypes.func.isRequired,
+};
 export default NoteItemBody;

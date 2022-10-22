@@ -100,7 +100,7 @@ const editSubmitNote = (id, title, note, archived) => {
     id: id,
     title: title,
     note: note,
-    date: new Date(),
+    date: +new Date(),
     archived: archived,
     edit: false,
   });
@@ -116,25 +116,6 @@ const showFormattedDate = (date) => {
     day: 'numeric',
   };
   return (
-    new Date(date).toLocaleDateString('id-ID', options) +
-    ', ' +
-    [
-      new Date(date).getHours(),
-      new Date(date).getMinutes(),
-      new Date(date).getSeconds(),
-    ].join(':')
-  );
-};
-
-const showFormattedDateEdited = (date) => {
-  const options = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  };
-  return (
-    'Telah diedit pada: ' +
     new Date(date).toLocaleDateString('id-ID', options) +
     ', ' +
     [
@@ -172,7 +153,6 @@ const searchNotes = (keyword) => {
 export {
   getInitialData,
   showFormattedDate,
-  showFormattedDateEdited,
   deleteNote,
   archiveNote,
   editNote,

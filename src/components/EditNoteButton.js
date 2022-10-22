@@ -1,14 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { MdModeEdit } from 'react-icons/md';
 
 const EditNoteButton = ({ id, onEditNote }) => {
   return (
-    <button
-      className="notes-item__edit  note-button__effect"
+    <MdModeEdit
+      className="edit-icon note-button__effect"
       onClick={() => onEditNote(id)}
-    >
-      E
-    </button>
+      title="Edit"
+    />
   );
+};
+
+EditNoteButton.propTypes = {
+  id: PropTypes.string.isRequired,
+  onEditNote: PropTypes.func.isRequired,
 };
 
 export default EditNoteButton;

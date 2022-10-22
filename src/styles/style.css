@@ -169,7 +169,6 @@ img {
 
 .note-button__effect:hover {
   position: relative;
-  box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.2);
   animation-name: effect-button;
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
@@ -391,11 +390,47 @@ img {
   height: 60px;
   bottom: 25px;
   right: 25px;
-  background-color: greenyellow;
+  background-color: rgb(0, 216, 11);
   color: #fff;
   border-radius: 50px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.add-icon {
+  width: 30px;
+  height: 30px;
+}
+.delete-icon {
+  color: red;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.edit-icon {
+  color: blue;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.archive-icon {
+  color: rgb(0, 209, 0);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.unarchive-icon {
+  color: rgb(255, 174, 0);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }
 
 .float-archived {
@@ -407,8 +442,15 @@ img {
   background-color: black;
   color: #fff;
   border-radius: 50px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.archived-icon {
+  width: 30px;
+  height: 30px;
 }
 
 .float-add:hover {

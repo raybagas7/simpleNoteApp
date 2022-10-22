@@ -1,6 +1,7 @@
 import React from 'react';
 import NoteItem from './NoteItem';
 import { useSearchParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const ArchivedNotesWrapper = ({
   notes,
@@ -102,4 +103,12 @@ class ArchivedNotes extends React.Component {
     );
   }
 }
+
+ArchivedNotesWrapper.propTypes = {
+  notes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  editSubmitNote: PropTypes.func.isRequired,
+  onDeleteNote: PropTypes.func.isRequired,
+  onEditNote: PropTypes.func.isRequired,
+  onChecklistNote: PropTypes.func.isRequired,
+};
 export default ArchivedNotesWrapper;

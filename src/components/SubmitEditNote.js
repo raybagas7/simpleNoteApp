@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SubmitEditNote extends React.Component {
   constructor(props) {
@@ -61,4 +62,11 @@ class SubmitEditNote extends React.Component {
     );
   }
 }
+
+SubmitEditNote.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  note: PropTypes.string.isRequired,
+  archived: PropTypes.bool.isRequired,
+};
 export default SubmitEditNote;

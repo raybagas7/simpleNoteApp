@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputNote extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       title: '',
       note: ' ',
@@ -65,5 +67,9 @@ class InputNote extends React.Component {
     );
   }
 }
+
+InputNote.propTypes = {
+  addNote: PropTypes.func.isRequired,
+};
 
 export default InputNote;

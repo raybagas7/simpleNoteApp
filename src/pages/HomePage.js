@@ -9,6 +9,8 @@ import {
 import { Link } from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom';
 import ActiveNotes from '../components/ActiveNotes';
+import { GiArchiveResearch } from 'react-icons/gi';
+import { AiOutlinePlus } from 'react-icons/ai';
 
 const HomePageWrapper = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -90,11 +92,15 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
-        <Link to="/add">
-          <div class="float-add"></div>
+        <Link to="/simpleNoteApp/add">
+          <div className="float-add">
+            <AiOutlinePlus className="add-icon" />
+          </div>
         </Link>
-        <Link to="/archived">
-          <div class="float-archived"></div>
+        <Link to="/simpleNoteApp/archived">
+          <div className="float-archived">
+            <GiArchiveResearch className="archived-icon" />
+          </div>
         </Link>
 
         <ActiveNotes

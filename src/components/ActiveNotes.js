@@ -1,7 +1,7 @@
 import React from 'react';
-import ButtonInfo from './ButtonInfo';
 import NoteItem from './NoteItem';
 import { useSearchParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const ActiveNotesWrapper = ({
   notes,
@@ -76,7 +76,6 @@ class ActiveNotes extends React.Component {
       </div>
     ) : (
       <>
-        <ButtonInfo />
         <div className="notes-list__contain-active">
           <h3>Active Notes</h3>
           <form className="search-note ">
@@ -106,4 +105,12 @@ class ActiveNotes extends React.Component {
     );
   }
 }
+
+ActiveNotesWrapper.propTypes = {
+  notes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  editSubmitNote: PropTypes.func.isRequired,
+  onDeleteNote: PropTypes.func.isRequired,
+  onEditNote: PropTypes.func.isRequired,
+  onChecklistNote: PropTypes.func.isRequired,
+};
 export default ActiveNotesWrapper;
