@@ -12,17 +12,16 @@ const NotesApp = () => {
     <div className="notes-app">
       <header>
         <h1 className="apps-name">
-          <Link to="/simpleNoteApp/">Notes App</Link>
+          <Link to="/">Notes App</Link>
         </h1>
       </header>
       <main>
         <Routes>
           <Route path="/*" element={<NotFoundPage />} />
-          <Route path="/simpleNoteApp/*" element={<NotFoundPage />} />
-          <Route path="/simpleNoteApp/" element={<HomePage />} />
-          <Route path="/simpleNoteApp/add" element={<AddPage />} />
-          <Route path="/simpleNoteApp/archived" element={<ArchivedPage />} />
-          <Route path="/simpleNoteApp/notes/:id" element={<DetailPage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/add" element={<AddPage />} />
+          <Route path="/archived" element={<ArchivedPage />} />
+          <Route path="/notes/:id" element={<DetailPage />} />
         </Routes>
       </main>
     </div>

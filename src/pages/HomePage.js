@@ -11,6 +11,7 @@ import { useSearchParams } from 'react-router-dom';
 import ActiveNotes from '../components/ActiveNotes';
 import { GiArchiveResearch } from 'react-icons/gi';
 import { AiOutlinePlus } from 'react-icons/ai';
+import PropTypes from 'prop-types';
 
 const HomePageWrapper = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -92,12 +93,12 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
-        <Link to="/simpleNoteApp/add">
+        <Link to="/add">
           <div className="float-add">
             <AiOutlinePlus className="add-icon" title="Add Note" />
           </div>
         </Link>
-        <Link to="/simpleNoteApp/archived">
+        <Link to="/archived">
           <div className="float-archived">
             <GiArchiveResearch
               className="archived-icon"
@@ -117,5 +118,10 @@ class HomePage extends React.Component {
     );
   }
 }
+
+HomePage.propTypes = {
+  defaultKeyword: PropTypes.string,
+  keywordChange: PropTypes.func.isRequired,
+};
 
 export default HomePageWrapper;

@@ -32,7 +32,7 @@ const NoteItemBody = ({
     <div className="notes-item__body">
       <article>
         <h3 className="notes-item__title">
-          <Link to={`/simpleNoteApp/notes/${id}`}>{title}</Link>
+          <Link to={`/notes/${id}`}>{title}</Link>
         </h3>
         <p className="notes-item__date">{showFormattedDate(date)}</p>
         <div className="notes-item__note">{parser(note)}</div>

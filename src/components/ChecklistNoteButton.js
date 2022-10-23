@@ -20,6 +20,7 @@ const ChecklistNoteButton = ({ id, archived, onChecklistNote }) => {
 
 ChecklistNoteButton.propTypes = {
   id: PropTypes.string.isRequired,
+  archived: PropTypes.bool.isRequired,
   onChecklistNote: PropTypes.func.isRequired,
 };
 
