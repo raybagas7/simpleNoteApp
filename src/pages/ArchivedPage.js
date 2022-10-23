@@ -7,22 +7,6 @@ import {
   editNote,
   editSubmitNote,
 } from '../utils/index';
-import PropTypes from 'prop-types';
-import { useSearchParams } from 'react-router-dom';
-
-const ArchivedPageWrapper = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const keyword = searchParams.get('keyword');
-
-  const changeSearchParams = (keyword) => {
-    setSearchParams({ keyword });
-  };
-
-  return (
-    <ArchivedPage defaultKeyword={keyword} keywordChange={changeSearchParams} />
-  );
-};
 
 class ArchivedPage extends React.Component {
   constructor(props) {
@@ -102,9 +86,4 @@ class ArchivedPage extends React.Component {
   }
 }
 
-ArchivedPage.propTypes = {
-  defaultKeyword: PropTypes.string,
-  keywordChange: PropTypes.func.isRequired,
-};
-
-export default ArchivedPageWrapper;
+export default ArchivedPage;

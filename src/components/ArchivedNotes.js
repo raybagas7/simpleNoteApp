@@ -111,4 +111,14 @@ ArchivedNotesWrapper.propTypes = {
   onEditNote: PropTypes.func.isRequired,
   onChecklistNote: PropTypes.func.isRequired,
 };
+
+ArchivedNotes.propTypes = {
+  onSearch: PropTypes.func.isRequired,
+  activeKeyword: PropTypes.string,
+  notes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  editSubmitNote: PropTypes.func.isRequired,
+  onDeleteNote: PropTypes.func.isRequired,
+  onEditNote: PropTypes.func.isRequired,
+  onChecklistNote: PropTypes.func.isRequired,
+};
 export default ArchivedNotesWrapper;

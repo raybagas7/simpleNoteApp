@@ -23,9 +23,9 @@ const ActiveNotesWrapper = ({
       onSearch={changeSearchParams}
       activeKeyword={title}
       notes={notes}
+      editSubmitNote={editSubmitNote}
       onDeleteNote={onDeleteNote}
       onEditNote={onEditNote}
-      editSubmitNote={editSubmitNote}
       onChecklistNote={onChecklistNote}
     />
   );
@@ -107,6 +107,16 @@ class ActiveNotes extends React.Component {
 }
 
 ActiveNotesWrapper.propTypes = {
+  notes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  editSubmitNote: PropTypes.func.isRequired,
+  onDeleteNote: PropTypes.func.isRequired,
+  onEditNote: PropTypes.func.isRequired,
+  onChecklistNote: PropTypes.func.isRequired,
+};
+
+ActiveNotes.propTypes = {
+  onSearch: PropTypes.func.isRequired,
+  activeKeyword: PropTypes.string,
   notes: PropTypes.arrayOf(PropTypes.object).isRequired,
   editSubmitNote: PropTypes.func.isRequired,
   onDeleteNote: PropTypes.func.isRequired,
