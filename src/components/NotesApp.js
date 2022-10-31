@@ -6,9 +6,26 @@ import ArchivedPage from '../pages/ArchivedPage';
 import DetailPage from '../pages/DetailedPage';
 import { Link } from 'react-router-dom';
 import NotFoundPage from '../pages/NotFoundPage';
+import RegisterPage from '../pages/RegisterPage';
 
 const NotesApp = () => {
-  return (
+  const [authedUser, setAuthedUser] = React.useState(null);
+
+  return authedUser === null ? (
+    <div className="notes-app">
+      <header>
+        <h1 className="apps-name">
+          <Link to="/">Notes App</Link>
+        </h1>
+      </header>
+      <main>
+        <Routes>
+          <Route path="/*" element={<p>Halaman Login</p>} />
+          <Route path="/register" element={<RegisterPage />} />
+        </Routes>
+      </main>
+    </div>
+  ) : (
     <div className="notes-app">
       <header>
         <h1 className="apps-name">

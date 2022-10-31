@@ -92,12 +92,12 @@ img {
 }
 
 .notes-list__contain-archived {
-  max-width: 64%;
+  max-width: 90%;
   margin: 0 auto;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   padding-bottom: 11px;
-  margin-top: 30px;
+  margin-top: 50px;
   margin-bottom: 25px;
 }
 
@@ -150,6 +150,75 @@ img {
   word-wrap: break-word;
   width: 80%;
   height: 80%;
+  border: 1px solid black;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.register-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.register-input {
+  width: 35%;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.back-to__login {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.register-input h2 {
+  margin-bottom: 20px;
+}
+
+.register-input input {
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.register-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.register-input button {
+  padding: 10px;
+  width: 100px;
+  display: block;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 3px solid rgb(0, 0, 0);
+  transition: 0.3s;
+}
+
+.register-button button:hover {
+  border: 3px solid rgb(137, 224, 6);
+  position: relative;
+  animation-name: effect-register-button;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes effect-register-button {
+  0% {
+    bottom: 0px;
+  }
+  100% {
+    bottom: 2px;
+  }
 }
 
 .notes-item__note {
