@@ -45,10 +45,36 @@ img {
   width: 360px;
   display: flex;
   align-items: center;
-  margin: 11px 11px 0px 11px;
-  border: 1px dashed black;
+  margin: 11px 11px 11px 11px;
+  border: 1px solid black;
   padding: 16px;
   border-radius: 8px;
+  transition: 0.3s;
+  background-color: whitesmoke;
+}
+
+.notes-item:hover {
+  transform: scale(1.1);
+  background-color: rgb(255, 255, 255);
+}
+
+.notes-item:hover .delete-icon {
+  visibility: visible;
+}
+.notes-item:hover .edit-icon {
+  visibility: visible;
+}
+.notes-item:hover .archive-icon {
+  visibility: visible;
+}
+
+.notes-item:hover .unarchive-icon {
+  visibility: visible;
+}
+
+.notes-item:hover .notes-item__note {
+  -webkit-line-clamp: 4;
+  height: 95px;
 }
 
 .notes-list__contain-active {
@@ -128,10 +154,10 @@ img {
 
 .notes-item__note {
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  height: 95px;
+  height: 135px;
   border: 1px dashed black;
   padding: 10px 10px 10px 10px;
   border-radius: 8px;
@@ -181,7 +207,7 @@ img {
   }
   100% {
     opacity: 100%;
-    bottom: 2px;
+    bottom: 5px;
   }
 }
 
@@ -296,6 +322,7 @@ img {
   font-family: 'Inter', sans-serif;
   border: 1px solid black;
   border-radius: 8px;
+  margin-bottom: 11px;
 }
 
 .notes-list__contain-archived .notes-item__checklist {
@@ -405,6 +432,7 @@ img {
   height: 30px;
 }
 .delete-icon {
+  visibility: hidden;
   color: red;
   width: 40px;
   height: 40px;
@@ -412,6 +440,7 @@ img {
 }
 
 .edit-icon {
+  visibility: hidden;
   color: blue;
   margin-left: 10px;
   margin-right: 10px;
@@ -421,6 +450,7 @@ img {
 }
 
 .archive-icon {
+  visibility: hidden;
   color: rgb(0, 209, 0);
   width: 40px;
   height: 40px;
@@ -428,6 +458,7 @@ img {
 }
 
 .unarchive-icon {
+  visibility: hidden;
   color: rgb(255, 174, 0);
   width: 40px;
   height: 40px;
