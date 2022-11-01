@@ -13,6 +13,35 @@ img {
   width: 100%;
 }
 
+nav {
+  text-align: right;
+  border-bottom: 3px solid black;
+}
+
+nav p {
+  display: inline;
+  margin-right: 10px;
+  padding: 5px;
+}
+
+nav li {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  list-style-type: none;
+}
+
+.logout-button {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-button:hover {
+  color: red;
+  scale: 1.2;
+}
+
 .apps-name a {
   text-decoration: none;
   color: black;
@@ -34,12 +63,12 @@ img {
   text-align: center;
   font-weight: normal;
   font-size: 48px;
-  margin-bottom: 32px;
 }
 
 .notes-app h2 {
   text-align: center;
 }
+
 .notes-item {
   height: 240px;
   width: 360px;
@@ -176,6 +205,13 @@ img {
   padding: 20px;
 }
 
+.go-to__register {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
 .register-input h2 {
   margin-bottom: 20px;
 }
@@ -285,7 +321,7 @@ img {
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 50px;
   margin-bottom: 24px;
   padding: 20px;
 }
@@ -304,7 +340,7 @@ img {
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 50px;
   margin-bottom: 24px;
   padding: 20px;
 }
@@ -380,6 +416,7 @@ img {
   margin: 14px auto;
   border-radius: 8px;
   margin-bottom: 32px;
+  margin-top: 50px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -575,6 +612,10 @@ img {
     opacity: 100%;
     bottom: 30px;
   }
+}
+
+.notes-item__body-detailed {
+  margin-top: 50px;
 }
 
 .notes-item__body-detailed h1 {

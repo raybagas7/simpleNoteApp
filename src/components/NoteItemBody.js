@@ -1,7 +1,7 @@
 import React from 'react';
-import SubmitEditNote from './SubmitEditNote';
+// import SubmitEditNote from './SubmitEditNote';
 import DeleteNoteButton from './DeleteNoteButton';
-import EditNoteButton from './EditNoteButton';
+// import EditNoteButton from './EditNoteButton';
 import ChecklistNoteButton from './ChecklistNoteButton';
 import { showFormattedDate } from '../utils/index';
 import { Link } from 'react-router-dom';
@@ -11,38 +11,31 @@ import PropTypes from 'prop-types';
 const NoteItemBody = ({
   id,
   title,
-  date,
+  body,
+  createdAt,
   archived,
-  note,
-  edit,
-  editSubmitNote,
+  // editSubmitNote,
   onDeleteNote,
-  onEditNote,
-  onChecklistNote,
+  // onEditNote,
+  onArchiveNote,
+  onUnarchiveNote,
 }) => {
-  return edit ? (
-    <SubmitEditNote
-      id={id}
-      title={title}
-      note={note}
-      archived={archived}
-      editSubmitNote={editSubmitNote}
-    />
-  ) : (
+  return (
     <div className="notes-item__body">
       <article>
         <h3 className="notes-item__title">
           <Link to={`/notes/${id}`}>{title}</Link>
         </h3>
-        <p className="notes-item__date">{showFormattedDate(date)}</p>
-        <div className="notes-item__note">{parser(note)}</div>
+        <p className="notes-item__date">{showFormattedDate(createdAt)}</p>
+        <div className="notes-item__note">{parser(body)}</div>
         <div className="notes-item__body-button">
           <DeleteNoteButton id={id} onDeleteNote={onDeleteNote} />
-          <EditNoteButton id={id} onEditNote={onEditNote} />
+          {/* <EditNoteButton id={id} onEditNote={onEditNote} /> */}
           <ChecklistNoteButton
             id={id}
             archived={archived}
-            onChecklistNote={onChecklistNote}
+            onArchiveNote={onArchiveNote}
+            onUnarchiveNote={onUnarchiveNote}
           />
         </div>
       </article>
@@ -53,13 +46,14 @@ const NoteItemBody = ({
 NoteItemBody.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  date: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  createdAt: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   archived: PropTypes.bool.isRequired,
-  note: PropTypes.string.isRequired,
-  edit: PropTypes.bool.isRequired,
-  editSubmitNote: PropTypes.func.isRequired,
+  body: PropTypes.string.isRequired,
+  // edit: PropTypes.bool.isRequired,
+  // editSubmitNote: PropTypes.func.isRequired,
   onDeleteNote: PropTypes.func.isRequired,
-  onEditNote: PropTypes.func.isRequired,
-  onChecklistNote: PropTypes.func.isRequired,
+  // onEditNote: PropTypes.func.isRequired,
+  onArchiveNote: PropTypes.func,
+  onUnarchiveNote: PropTypes.func,
 };
 export default NoteItemBody;

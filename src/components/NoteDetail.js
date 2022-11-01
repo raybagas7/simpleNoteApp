@@ -3,13 +3,13 @@ import { showFormattedDate } from '../utils/index';
 import parser from 'html-react-parser';
 import PropTypes from 'prop-types';
 
-const NoteDetail = ({ title, note, date }) => {
+const NoteDetail = ({ title, body, createdAt }) => {
   return (
     <div className="notes-item__body-detailed">
       <article>
         <h1>{title}</h1>
-        <p className="notes-item__date">{showFormattedDate(date)}</p>
-        <p className="notes-item__note-detailed">{parser(note)}</p>
+        <p className="notes-item__date">{showFormattedDate(createdAt)}</p>
+        <p className="notes-item__note-detailed">{parser(body)}</p>
       </article>
     </div>
   );

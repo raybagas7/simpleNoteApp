@@ -2,17 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MdArchive, MdUnarchive } from 'react-icons/md';
 
-const ChecklistNoteButton = ({ id, archived, onChecklistNote }) => {
+const ChecklistNoteButton = ({
+  id,
+  archived,
+  onArchiveNote,
+  onUnarchiveNote,
+}) => {
   return archived === false ? (
     <MdArchive
       className="archive-icon note-button__effect"
-      onClick={() => onChecklistNote(id)}
+      onClick={() => onArchiveNote(id)}
       title="Archive"
     />
   ) : (
     <MdUnarchive
       className="unarchive-icon note-button__effect"
-      onClick={() => onChecklistNote(id)}
+      onClick={() => onUnarchiveNote(id)}
       title="Unarchive"
     />
   );
@@ -21,7 +26,8 @@ const ChecklistNoteButton = ({ id, archived, onChecklistNote }) => {
 ChecklistNoteButton.propTypes = {
   id: PropTypes.string.isRequired,
   archived: PropTypes.bool.isRequired,
-  onChecklistNote: PropTypes.func.isRequired,
+  onArchiveNote: PropTypes.func,
+  onUnarchiveNote: PropTypes.func,
 };
 
 export default ChecklistNoteButton;

@@ -7,11 +7,11 @@ class InputNote extends React.Component {
 
     this.state = {
       title: '',
-      note: ' ',
+      body: ' ',
       remain_char: 50,
     };
 
-    this.onChangeNoteHandler = this.onChangeNoteHandler.bind(this);
+    this.onChangeBodyHandler = this.onChangeBodyHandler.bind(this);
     this.onChangeTilteHandler = this.onChangeTilteHandler.bind(this);
     this.onSubmitNoteEventHandler = this.onSubmitNoteEventHandler.bind(this);
   }
@@ -24,10 +24,10 @@ class InputNote extends React.Component {
     });
   }
 
-  onChangeNoteHandler(event) {
+  onChangeBodyHandler(event) {
     this.setState(() => {
       return {
-        note: event.target.innerHTML,
+        body: event.target.innerHTML,
       };
     });
   }
@@ -40,8 +40,8 @@ class InputNote extends React.Component {
   render() {
     return (
       <>
-        <h2>Add Note</h2>
         <form onSubmit={this.onSubmitNoteEventHandler} className="notes-input">
+          <h2>Add Note</h2>
           <p className="remaining-characters">
             Remaining characters:{' '}
             {this.state.remain_char - this.state.title.length}
@@ -59,7 +59,7 @@ class InputNote extends React.Component {
             data-placeholder="Type note...."
             contentEditable
             required
-            onInput={this.onChangeNoteHandler}
+            onInput={this.onChangeBodyHandler}
           />
           <button type="submit">Add Note</button>
         </form>

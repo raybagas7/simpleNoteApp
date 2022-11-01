@@ -7,9 +7,37 @@ import DetailPage from '../pages/DetailedPage';
 import { Link } from 'react-router-dom';
 import NotFoundPage from '../pages/NotFoundPage';
 import RegisterPage from '../pages/RegisterPage';
+import LoginPage from '../pages/LoginPage';
+import { getUserLogged, putAccessToken } from '../utils/network-data';
+import Navigation from './Navigation';
 
 const NotesApp = () => {
   const [authedUser, setAuthedUser] = React.useState(null);
+  const [initializing, setInitializing] = React.useState(true);
+
+  const onLoginSuccess = async ({ accessToken }) => {
+    putAccessToken(accessToken);
+    const { data } = await getUserLogged();
+
+    setAuthedUser(data);
+  };
+
+  const onLogout = () => {
+    setAuthedUser(null);
+
+    putAccessToken('');
+  };
+
+  React.useEffect(() => {
+    getUserLogged().then(({ data }) => {
+      setAuthedUser(data);
+      setInitializing(false);
+    });
+  }, []);
+
+  if (initializing) {
+    return null;
+  }
 
   return authedUser === null ? (
     <div className="notes-app">
@@ -20,7 +48,10 @@ const NotesApp = () => {
       </header>
       <main>
         <Routes>
-          <Route path="/*" element={<p>Halaman Login</p>} />
+          <Route
+            path="/*"
+            element={<LoginPage loginSuccess={onLoginSuccess} />}
+          />
           <Route path="/register" element={<RegisterPage />} />
         </Routes>
       </main>
@@ -29,8 +60,9 @@ const NotesApp = () => {
     <div className="notes-app">
       <header>
         <h1 className="apps-name">
-          <Link to="/">Notes App</Link>
+          <Link to="/">{authedUser.name} Notes</Link>
         </h1>
+        <Navigation logout={onLogout} name={authedUser.name} />
       </header>
       <main>
         <Routes>

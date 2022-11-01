@@ -1,37 +1,36 @@
 import React from 'react';
-import { getNote } from '../utils/index';
+import { getNote } from '../utils/network-data';
 import { useParams } from 'react-router-dom';
 import NoteDetail from '../components/NoteDetail';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-function DetailPageWrapper() {
+// function DetailPageWrapper() {
+//   const { id } = useParams();
+//   return <DetailedPage id={String(id)} />;
+// }
+
+const DetailedPage = (props) => {
   const { id } = useParams();
-  return <DetailedPage id={String(id)} />;
-}
+  const [note, setNote] = React.useState({});
 
-class DetailedPage extends React.Component {
-  constructor(props) {
-    super(props);
+  React.useEffect(() => {
+    getNote(id).then(({ data }) => {
+      setNote(data);
+    });
+  }, [id]);
 
-    this.state = {
-      note: getNote(props.id),
-    };
+  if (note === null) {
+    return <h1>Note not found!</h1>;
   }
 
-  render() {
-    if (this.state.note === null) {
-      return <h1>Note not found!</h1>;
-    }
-
-    return (
-      <section>
-        <NoteDetail {...this.state.note} />
-      </section>
-    );
-  }
-}
-
-DetailedPage.propTypes = {
-  id: PropTypes.string.isRequired,
+  return (
+    <section>
+      <NoteDetail {...note} />
+    </section>
+  );
 };
-export default DetailPageWrapper;
+
+// DetailedPage.propTypes = {
+//   id: PropTypes.string.isRequired,
+// };
+export default DetailedPage;

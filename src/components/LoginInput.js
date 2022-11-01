@@ -14,17 +14,23 @@ const LoginInput = (props) => {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
+
+    props.login({
+      email,
+      password,
+    });
   };
 
   return (
     <div className="register-container">
       <form onSubmit={onSubmitHandler} className="register-input">
-        <h2>REGISTER</h2>
+        <h2>MASUK</h2>
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={emailChangeHandler}
+          required
         />
         <input
           type="password"
@@ -32,9 +38,10 @@ const LoginInput = (props) => {
           autoComplete="current-password"
           value={password}
           onChange={passwordChangeHandler}
+          required
         />
         <div className="register-button">
-          <button>Register</button>
+          <button>Masuk</button>
         </div>
       </form>
     </div>

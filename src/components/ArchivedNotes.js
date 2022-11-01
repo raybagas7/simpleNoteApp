@@ -8,7 +8,7 @@ const ArchivedNotesWrapper = ({
   editSubmitNote,
   onDeleteNote,
   onEditNote,
-  onChecklistNote,
+  onUnarchiveNote,
 }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -26,7 +26,7 @@ const ArchivedNotesWrapper = ({
       onDeleteNote={onDeleteNote}
       onEditNote={onEditNote}
       editSubmitNote={editSubmitNote}
-      onChecklistNote={onChecklistNote}
+      onUnarchiveNote={onUnarchiveNote}
     />
   );
 };
@@ -94,7 +94,7 @@ class ArchivedNotes extends React.Component {
               onDeleteNote={this.props.onDeleteNote}
               onEditNote={this.props.onEditNote}
               editSubmitNote={this.props.editSubmitNote}
-              onChecklistNote={this.props.onChecklistNote}
+              onUnarchiveNote={this.props.onUnarchiveNote}
               {...note}
             />
           ))}
@@ -109,7 +109,7 @@ ArchivedNotesWrapper.propTypes = {
   editSubmitNote: PropTypes.func.isRequired,
   onDeleteNote: PropTypes.func.isRequired,
   onEditNote: PropTypes.func.isRequired,
-  onChecklistNote: PropTypes.func.isRequired,
+  onUnarchiveNote: PropTypes.func.isRequired,
 };
 
 ArchivedNotes.propTypes = {
@@ -118,7 +118,7 @@ ArchivedNotes.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.object).isRequired,
   editSubmitNote: PropTypes.func.isRequired,
   onDeleteNote: PropTypes.func.isRequired,
-  onEditNote: PropTypes.func.isRequired,
-  onChecklistNote: PropTypes.func.isRequired,
+  onEditNote: PropTypes.func,
+  onUnarchiveNote: PropTypes.func,
 };
 export default ArchivedNotesWrapper;

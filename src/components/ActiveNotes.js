@@ -8,7 +8,7 @@ const ActiveNotesWrapper = ({
   editSubmitNote,
   onDeleteNote,
   onEditNote,
-  onChecklistNote,
+  onArchiveNote,
 }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -26,7 +26,7 @@ const ActiveNotesWrapper = ({
       editSubmitNote={editSubmitNote}
       onDeleteNote={onDeleteNote}
       onEditNote={onEditNote}
-      onChecklistNote={onChecklistNote}
+      onArchiveNote={onArchiveNote}
     />
   );
 };
@@ -90,12 +90,12 @@ class ActiveNotes extends React.Component {
             {this.onSearchNotesHandler().map((note) => (
               <NoteItem
                 key={note.id}
-                id={note.note}
-                edit={note.edit}
+                id={note.id}
+                // edit={note.edit}
                 onDeleteNote={this.props.onDeleteNote}
                 onEditNote={this.props.onEditNote}
                 editSubmitNote={this.props.editSubmitNote}
-                onChecklistNote={this.props.onChecklistNote}
+                onArchiveNote={this.props.onArchiveNote}
                 {...note}
               />
             ))}
@@ -111,7 +111,7 @@ ActiveNotesWrapper.propTypes = {
   editSubmitNote: PropTypes.func.isRequired,
   onDeleteNote: PropTypes.func.isRequired,
   onEditNote: PropTypes.func.isRequired,
-  onChecklistNote: PropTypes.func.isRequired,
+  onArchiveNote: PropTypes.func.isRequired,
 };
 
 ActiveNotes.propTypes = {
@@ -121,6 +121,6 @@ ActiveNotes.propTypes = {
   editSubmitNote: PropTypes.func.isRequired,
   onDeleteNote: PropTypes.func.isRequired,
   onEditNote: PropTypes.func.isRequired,
-  onChecklistNote: PropTypes.func.isRequired,
+  onArchiveNote: PropTypes.func.isRequired,
 };
 export default ActiveNotesWrapper;

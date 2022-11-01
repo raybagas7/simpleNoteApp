@@ -1,22 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { RiLogoutCircleLine } from 'react-icons/ri';
+//RiLogoutCircleFill
 
-function Navigation() {
+function Navigation({ logout }) {
   return (
     <nav className="navigation">
       <ul>
         <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/add">Add</Link>
-        </li>
-        <li>
-          <Link to="/archived">Archived</Link>
+          <RiLogoutCircleLine
+            onClick={logout}
+            className="logout-button"
+            title="Logout"
+          />
         </li>
       </ul>
     </nav>
   );
 }
+
+Navigation.propTypes = {
+  logout: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+};
 
 export default Navigation;
