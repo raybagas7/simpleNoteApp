@@ -9,18 +9,24 @@ import NoteDetail from '../components/NoteDetail';
 //   return <DetailedPage id={String(id)} />;
 // }
 
-const DetailedPage = (props) => {
+const DetailedPage = () => {
   const { id } = useParams();
   const [note, setNote] = React.useState({});
+  const [initializing, setInitializing] = React.useState(true);
 
   React.useEffect(() => {
     getNote(id).then(({ data }) => {
       setNote(data);
+      setInitializing(false);
     });
   }, [id]);
 
   if (note === null) {
     return <h1>Note not found!</h1>;
+  }
+
+  if (initializing) {
+    return null;
   }
 
   return (
