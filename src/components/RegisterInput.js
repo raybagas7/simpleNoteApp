@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import LocaleContext from '../contexts/LocaleContext';
 
 const RegisterInput = (props) => {
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const { locale } = React.useContext(LocaleContext);
 
   const nameChangeHandler = (event) => {
     setName(event.target.value);
@@ -30,18 +32,20 @@ const RegisterInput = (props) => {
   return (
     <div className="register-container">
       <form onSubmit={onSubmitHandler} className="register-input">
-        <h2>REGISTER</h2>
+        <h2>{locale === 'id' ? 'REGISTRASI? ' : 'SIGN UP '}</h2>
         <input
           type="text"
-          placeholder="Nama"
+          placeholder={locale === 'id' ? 'Nama' : 'Name'}
           value={name}
           onChange={nameChangeHandler}
+          required
         />
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={emailChangeHandler}
+          required
         />
         <input
           type="password"
@@ -49,9 +53,10 @@ const RegisterInput = (props) => {
           autoComplete="current-password"
           value={password}
           onChange={passwordChangeHandler}
+          required
         />
         <div className="register-button">
-          <button>Register</button>
+          <button>{locale === 'id' ? 'Registrasi ' : 'Register '}</button>
         </div>
       </form>
     </div>

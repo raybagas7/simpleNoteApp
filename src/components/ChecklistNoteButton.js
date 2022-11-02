@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { MdArchive, MdUnarchive } from 'react-icons/md';
+import LocaleContext from '../contexts/LocaleContext';
 
 const ChecklistNoteButton = ({
   id,
@@ -8,17 +9,18 @@ const ChecklistNoteButton = ({
   onArchiveNote,
   onUnarchiveNote,
 }) => {
+  const { locale } = React.useContext(LocaleContext);
   return archived === false ? (
     <MdArchive
       className="archive-icon note-button__effect"
       onClick={() => onArchiveNote(id)}
-      title="Archive"
+      title={locale === 'id' ? 'Arsipkan' : 'Archive'}
     />
   ) : (
     <MdUnarchive
       className="unarchive-icon note-button__effect"
       onClick={() => onUnarchiveNote(id)}
-      title="Unarchive"
+      title={locale === 'id' ? 'Aktifkan Catatan' : 'Unarchive'}
     />
   );
 };

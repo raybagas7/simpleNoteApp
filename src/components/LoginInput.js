@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import LocaleContext from '../contexts/LocaleContext';
 
 const LoginInput = (props) => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const { locale } = React.useContext(LocaleContext);
 
   const emailChangeHandler = (event) => {
     setEmail(event.target.value);
@@ -24,7 +26,7 @@ const LoginInput = (props) => {
   return (
     <div className="register-container">
       <form onSubmit={onSubmitHandler} className="register-input">
-        <h2>MASUK</h2>
+        <h2>{locale === 'id' ? 'MASUK' : 'LOGIN'}</h2>
         <input
           type="email"
           placeholder="Email"
@@ -41,7 +43,7 @@ const LoginInput = (props) => {
           required
         />
         <div className="register-button">
-          <button>Masuk</button>
+          <button>{locale === 'id' ? 'Masuk' : 'Login'}</button>
         </div>
       </form>
     </div>

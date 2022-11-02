@@ -2,6 +2,7 @@ import React from 'react';
 import NoteItem from './NoteItem';
 import { useSearchParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import LocaleContext from '../contexts/LocaleContext';
 
 const ActiveNotesWrapper = ({
   notes,
@@ -10,6 +11,7 @@ const ActiveNotesWrapper = ({
   onEditNote,
   onArchiveNote,
 }) => {
+  const { locale } = React.useContext(LocaleContext);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const title = searchParams.get('title');
@@ -27,6 +29,7 @@ const ActiveNotesWrapper = ({
       onDeleteNote={onDeleteNote}
       onEditNote={onEditNote}
       onArchiveNote={onArchiveNote}
+      locale={locale}
     />
   );
 };
@@ -63,25 +66,39 @@ class ActiveNotes extends React.Component {
   render() {
     return this.onSearchNotesHandler().length === 0 ? (
       <div className="notes-list__empty">
-        <h3>Active Notes</h3>
+        <h3>{this.props.locale === 'id' ? 'Catatan Aktif' : 'Active Notes'}</h3>
         <form className="search-note ">
           <input
             type="text"
-            placeholder="Search by title"
+            placeholder={
+              this.props.locale === 'id'
+                ? 'Cari berdasarkan judul'
+                : 'Search by title'
+            }
             value={this.state.search}
             onChange={this.onSearchChangeHandler}
           />
         </form>
-        <p>No Active Notes</p>
+        <p>
+          {this.props.locale === 'id'
+            ? 'Tidak Ada Catatan Aktif'
+            : 'No Active Notes'}
+        </p>
       </div>
     ) : (
       <>
         <div className="notes-list__contain-active">
-          <h3>Active Notes</h3>
+          <h3>
+            {this.props.locale === 'id' ? 'Catatan Aktif' : 'Active Notes'}
+          </h3>
           <form className="search-note ">
             <input
               type="text"
-              placeholder="Search by title"
+              placeholder={
+                this.props.locale === 'id'
+                  ? 'Cari berdasarkan judul'
+                  : 'Search by title'
+              }
               value={this.state.search}
               onChange={this.onSearchChangeHandler}
             />

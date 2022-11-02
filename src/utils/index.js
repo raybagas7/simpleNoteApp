@@ -108,7 +108,7 @@ const editSubmitNote = (id, title, note, archived) => {
   return newNotesSubmitted;
 };
 
-const showFormattedDate = (date) => {
+const showFormattedDate = (date, lang) => {
   const options = {
     weekday: 'long',
     year: 'numeric',
@@ -116,7 +116,7 @@ const showFormattedDate = (date) => {
     day: 'numeric',
   };
   return (
-    new Date(date).toLocaleDateString('id-ID', options) +
+    new Date(date).toLocaleDateString(lang, options) +
     ', ' +
     [
       new Date(date).getHours(),

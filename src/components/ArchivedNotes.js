@@ -2,6 +2,7 @@ import React from 'react';
 import NoteItem from './NoteItem';
 import { useSearchParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import LocaleContext from '../contexts/LocaleContext';
 
 const ArchivedNotesWrapper = ({
   notes,
@@ -10,6 +11,7 @@ const ArchivedNotesWrapper = ({
   onEditNote,
   onUnarchiveNote,
 }) => {
+  const { locale } = React.useContext(LocaleContext);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const title = searchParams.get('title');
@@ -27,6 +29,7 @@ const ArchivedNotesWrapper = ({
       onEditNote={onEditNote}
       editSubmitNote={editSubmitNote}
       onUnarchiveNote={onUnarchiveNote}
+      locale={locale}
     />
   );
 };
@@ -63,24 +66,44 @@ class ArchivedNotes extends React.Component {
   render() {
     return this.onSearchNotesHandler().length === 0 ? (
       <div className="notes-list__empty-archived">
-        <h3>Archived Notes</h3>
+        <h3>
+          {this.props.locale === 'id'
+            ? 'Catatan yang Diarsipkan'
+            : 'Archived Notes'}
+        </h3>
         <form className="search-note ">
           <input
             type="text"
-            placeholder="Search by title"
+            placeholder={
+              this.props.locale === 'id'
+                ? 'Cari berdasarkan judul'
+                : 'Search by title'
+            }
             value={this.state.search}
             onChange={this.onSearchChangeHandler}
           />
         </form>
-        <p>No Archived Notes</p>
+        <p>
+          {this.props.locale === 'id'
+            ? 'Tidak Ada Catatan yang Diarsipkan'
+            : 'No Archived Notes'}
+        </p>
       </div>
     ) : (
       <div className="notes-list__contain-archived">
-        <h3>Archived Notes</h3>
+        <h3>
+          {this.props.locale === 'id'
+            ? 'Catatan yang Diarsipkan'
+            : 'Archived Notes'}
+        </h3>
         <form className="search-note ">
           <input
             type="text"
-            placeholder="Search by title"
+            placeholder={
+              this.props.locale === 'id'
+                ? 'Cari berdasarkan judul'
+                : 'Search by title'
+            }
             value={this.state.search}
             onChange={this.onSearchChangeHandler}
           />

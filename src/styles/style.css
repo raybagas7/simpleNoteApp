@@ -25,6 +25,7 @@ nav p {
 }
 
 nav li {
+  display: inline;
   margin-right: 10px;
   margin-bottom: 10px;
   list-style-type: none;
@@ -35,6 +36,19 @@ nav li {
   height: 30px;
   cursor: pointer;
   transition: 0.3s;
+}
+
+.language-button {
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.language-button:hover {
+  color: #5190f5;
+  scale: 1.2;
 }
 
 .logout-button:hover {
@@ -420,6 +434,10 @@ nav li {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
+.notes-input h2 {
+  margin-bottom: 10px;
+}
+
 .search-note input {
   display: block;
   width: 30%;
@@ -518,6 +536,39 @@ nav li {
   font-family: 'Inter', sans-serif;
 }
 
+.float-translate {
+  cursor: pointer;
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  top: 25px;
+  right: 25px;
+  background-color: #5190f5;
+  color: black;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.float-translate:hover .translate-icon {
+  color: #5190f5;
+}
+
+.float-translate:hover {
+  scale: 1.2;
+  background-color: white;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.translate-icon {
+  color: white;
+  width: 30px;
+  height: 30px;
+  transition: 0.3s;
+}
+
 .float-add {
   position: fixed;
   width: 60px;
@@ -536,39 +587,6 @@ nav li {
 .add-icon {
   width: 30px;
   height: 30px;
-}
-.delete-icon {
-  visibility: hidden;
-  color: red;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
-
-.edit-icon {
-  visibility: hidden;
-  color: blue;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
-
-.archive-icon {
-  visibility: hidden;
-  color: rgb(0, 209, 0);
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
-
-.unarchive-icon {
-  visibility: hidden;
-  color: rgb(255, 174, 0);
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
 }
 
 .float-archived {
@@ -601,6 +619,46 @@ nav li {
   animation-name: effect-round-button;
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
+}
+
+.float-translate:hover {
+  animation-name: effect-round-button;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.delete-icon {
+  visibility: hidden;
+  color: red;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.edit-icon {
+  visibility: hidden;
+  color: blue;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.archive-icon {
+  visibility: hidden;
+  color: rgb(0, 209, 0);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.unarchive-icon {
+  visibility: hidden;
+  color: rgb(255, 174, 0);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }
 
 @keyframes effect-round-button {

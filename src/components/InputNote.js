@@ -1,5 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import LocaleContext from '../contexts/LocaleContext';
+
+const InputNoteWrapper = ({ addNote }) => {
+  const { locale } = React.useContext(LocaleContext);
+
+  return <InputNote locale={locale} addNote={addNote} />;
+};
 
 class InputNote extends React.Component {
   constructor(props) {
@@ -41,14 +48,17 @@ class InputNote extends React.Component {
     return (
       <>
         <form onSubmit={this.onSubmitNoteEventHandler} className="notes-input">
-          <h2>Add Note</h2>
+          <h2>{this.props.locale === 'id' ? 'Tambah Catatan' : 'Add Note'}</h2>
           <p className="remaining-characters">
-            Remaining characters:{' '}
+            {this.props.locale === 'id'
+              ? 'Karakter tersisa: '
+              : 'Remaining characters: '}
+
             {this.state.remain_char - this.state.title.length}
           </p>
           <input
             type="text"
-            placeholder="Title"
+            placeholder={this.props.locale === 'id' ? 'Judul' : 'Title'}
             value={this.state.title}
             onChange={this.onChangeTilteHandler}
             maxLength={this.state.remain_char}
@@ -61,7 +71,9 @@ class InputNote extends React.Component {
             required
             onInput={this.onChangeBodyHandler}
           />
-          <button type="submit">Add Note</button>
+          <button type="submit">
+            {this.props.locale === 'id' ? 'Tambahkan Catatan' : 'Add Note'}
+          </button>
         </form>
       </>
     );
@@ -72,4 +84,4 @@ InputNote.propTypes = {
   addNote: PropTypes.func.isRequired,
 };
 
-export default InputNote;
+export default InputNoteWrapper;
