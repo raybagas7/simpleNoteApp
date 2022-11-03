@@ -5,6 +5,7 @@ import LoginInput from '../components/LoginInput';
 import { login } from '../utils/network-data';
 import { MdGTranslate } from 'react-icons/md';
 import LocaleContext from '../contexts/LocaleContext';
+import ThemeButton from '../components/ThemeButton';
 
 const LoginPage = ({ loginSuccess }) => {
   const { locale, toggleLocale } = React.useContext(LocaleContext);
@@ -24,14 +25,15 @@ const LoginPage = ({ loginSuccess }) => {
           title={locale === 'id' ? 'English' : 'Indonesia'}
         />
       </div>
+      <ThemeButton />
       <LoginInput login={onLogin} />
       <div className="go-to__register">
         <p>
           {locale === 'id'
             ? 'Kamu belum memiliki akun? '
             : "You don't have an account? "}
-          <Link to="/register">
-            {locale === 'id' ? 'Daftar dulu sini.' : 'Sign up here. '}
+          <Link to="/register" className="link-signup">
+            {locale === 'id' ? 'Daftar dulu disini.' : 'Sign up here. '}
           </Link>
         </p>
       </div>

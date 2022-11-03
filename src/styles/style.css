@@ -1,3 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+:root {
+  --font-color: #000000;
+  --background-color: #f5f5f5;
+  --border-color: #000000;
+  --icon-color: #000000;
+  --container-color: #f5f5f5;
+  --small-container-color: #f5f5f5;
+  --container-border: #000000;
+  --container-hover: #ffffff;
+  --input-border-color: #000000;
+  --input-focus-border-color: #000000;
+  --link-color: #5190f5;
+  --link-hover: #00d5ff;
+  --alink-color-hover: #808080;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] {
+  --font-color: #f5f5f5;
+  --background-color: #09192f;
+  --border-color: #f5f5f5;
+  --icon-color: #f5f5f5;
+  --container-color: #172a46;
+  --small-container-color: #274066;
+  --container-border: #67ffe1;
+  --container-hover: #314e79;
+  --input-border-color: #f5f5f5;
+  --input-focus-border-color: #67ffe1;
+  --link-color: #67ffe1;
+  --link-hover: #ff00f2;
+  --alink-color-hover: #67ffe1;
+  --shadow-color: rgb(103, 255, 225, 0.7);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -5,8 +41,8 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: whitesmoke;
+  font-family: 'Kanit', sans-serif;
+  background-color: var(--background-color);
 }
 
 img {
@@ -14,8 +50,9 @@ img {
 }
 
 nav {
+  padding: 10px;
   text-align: right;
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid var(--border-color);
 }
 
 nav p {
@@ -32,13 +69,15 @@ nav li {
 }
 
 .logout-button {
+  color: var(--icon-color);
   width: 30px;
   height: 30px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.language-button {
+.moon-button {
+  color: var(--icon-color);
   margin-right: 5px;
   width: 30px;
   height: 30px;
@@ -46,25 +85,78 @@ nav li {
   transition: 0.3s;
 }
 
+.sun-button {
+  color: var(--icon-color);
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.moon-button__welcome {
+  color: var(--icon-color);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sun-button__welcome {
+  color: var(--icon-color);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.language-button {
+  color: var(--icon-color);
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sun-button__welcome:hover {
+  color: #ffbb00;
+  scale: 1.2;
+}
+
+.moon-button__welcome:hover {
+  color: #4e3088;
+  scale: 1.2;
+}
+
+.sun-button:hover {
+  color: #ffbb00;
+  scale: 1.2;
+}
+
+.moon-button:hover {
+  color: #4e3088;
+  scale: 1.2;
+}
 .language-button:hover {
   color: #5190f5;
   scale: 1.2;
 }
 
 .logout-button:hover {
-  color: red;
+  color: #c71e1e;
   scale: 1.2;
 }
 
 .apps-name a {
   text-decoration: none;
-  color: black;
+  color: var(--font-color);
   font-weight: 800;
 }
 
 .apps-name a:hover {
   text-decoration: none;
-  color: grey;
+  color: var(--alink-color-hover);
   font-weight: 800;
 }
 
@@ -89,16 +181,16 @@ nav li {
   display: flex;
   align-items: center;
   margin: 11px 11px 11px 11px;
-  border: 1px solid black;
+  border: 1px solid var(--container-border);
   padding: 16px;
   border-radius: 8px;
   transition: 0.3s;
-  background-color: whitesmoke;
+  background-color: var(--small-container-color);
 }
 
 .notes-item:hover {
   transform: scale(1.1);
-  background-color: rgb(255, 255, 255);
+  background-color: var(--container-hover);
 }
 
 .notes-item:hover .delete-icon {
@@ -121,23 +213,27 @@ nav li {
 }
 
 .notes-list__contain-active {
+  background-color: var(--container-color);
   max-width: 90%;
   margin: 0 auto;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 var(--shadow-color);
   margin-top: 50px;
   border-radius: 8px;
   padding-bottom: 11px;
 }
 
 .notes-list__contain-active > h3 {
+  color: var(--font-color);
   text-align: center;
   padding: 10px;
 }
 
 .notes-list__contain-archived {
+  background-color: var(--container-color);
+  color: var(--font-color);
   max-width: 90%;
   margin: 0 auto;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 var(--shadow-color);
   border-radius: 8px;
   padding-bottom: 11px;
   margin-top: 50px;
@@ -173,12 +269,12 @@ nav li {
 }
 
 .notes-item__title a {
-  color: black;
+  color: var(--font-color);
   text-decoration: none;
 }
 
 .notes-item__title a:hover {
-  color: grey;
+  color: var(--alink-color-hover);
   text-decoration: none;
 }
 
@@ -193,7 +289,7 @@ nav li {
   word-wrap: break-word;
   width: 80%;
   height: 80%;
-  border: 1px solid black;
+  border: 1px solid var(--container-border);
   padding: 16px;
   border-radius: 8px;
 }
@@ -205,21 +301,45 @@ nav li {
 }
 
 .register-input {
+  color: var(--font-color);
+  background-color: var(--small-container-color);
   width: 35%;
   padding: 20px;
   border-radius: 10px;
-  border: 1px solid black;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 8px 0 var(--shadow-color);
 }
 
 .back-to__login {
+  color: var(--font-color);
   width: 100%;
   display: flex;
   justify-content: center;
   padding: 20px;
 }
 
+.link-login {
+  color: var(--link-color);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.link-login:hover {
+  color: var(--link-hover);
+}
+
+.link-signup {
+  color: var(--link-color);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.link-signup:hover {
+  color: var(--link-hover);
+}
+
 .go-to__register {
+  color: var(--font-color);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -231,11 +351,18 @@ nav li {
 }
 
 .register-input input {
-  padding: 10px;
+  font-family: 'Kanit', sans-serif;
+  padding: 15px;
   border-radius: 10px;
   width: 100%;
   display: block;
   margin-bottom: 15px;
+  outline: none;
+  border-color: var(--background-color);
+}
+
+.register-input input:focus {
+  border-color: rgb(137, 224, 6);
 }
 
 .register-button {
@@ -245,46 +372,75 @@ nav li {
 }
 
 .register-input button {
+  margin-top: 5px;
+  color: var(--font-color);
+  font-family: 'Kanit', sans-serif;
+  background-color: var(--small-container-color);
+  font-weight: 900;
+  font-size: 1em;
   padding: 10px;
   width: 100px;
   display: block;
   border-radius: 10px;
   cursor: pointer;
-  border: 3px solid rgb(0, 0, 0);
+  border: 3px solid var(--container-border);
   transition: 0.3s;
 }
 
-.register-button button:hover {
-  border: 3px solid rgb(137, 224, 6);
-  position: relative;
-  animation-name: effect-register-button;
-  animation-duration: 0.3s;
-  animation-fill-mode: forwards;
+.notes-input button {
+  margin-top: 5px;
+  color: var(--font-color);
+  font-family: 'Kanit', sans-serif;
+  background-color: var(--container-color);
+  font-weight: 900;
+  font-size: 1em;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  padding: 10px;
+  width: 50%;
+  display: block;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 3px solid var(--container-border);
+  transition: 0.3s;
 }
 
-@keyframes effect-register-button {
-  0% {
-    bottom: 0px;
-  }
-  100% {
-    bottom: 2px;
-  }
+.notes-input button:hover {
+  border: 3px solid #3cff00;
+  scale: 1.1;
+}
+
+.register-button button:disabled {
+  color: var(--font-color);
+  width: 200px;
+}
+
+.register-button button:disabled:hover {
+  border: 3px solid rgb(255, 0, 0);
+}
+
+.register-button button:hover {
+  border: 3px solid #3cff00;
+  scale: 1.1;
 }
 
 .notes-item__note {
+  color: var(--font-color);
   display: -webkit-box;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
   height: 135px;
-  border: 1px dashed black;
+  border: 1px dashed var(--container-border);
   padding: 10px 10px 10px 10px;
   border-radius: 8px;
 }
 
 .notes-item__note-detailed {
+  color: var(--font-color);
   height: fit-content;
-  border: 1px dashed black;
+  border: 1px dashed var(--container-border);
   padding: 10px 10px 10px 10px;
   text-align: justify;
   border-radius: 8px;
@@ -296,6 +452,7 @@ nav li {
 }
 
 .notes-item__date {
+  color: var(--font-color);
   word-wrap: break-word;
   font-weight: lighter;
   font-size: 12px;
@@ -331,9 +488,11 @@ nav li {
 }
 
 .notes-list__empty {
+  background-color: var(--container-color);
+  color: var(--font-color);
   max-width: 90%;
   border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 var(--shadow-color);
   margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 24px;
@@ -345,14 +504,16 @@ nav li {
   width: fit-content;
   padding: 10px;
   border-radius: 10px;
-  border: 1px dashed black;
+  border: 1px dashed var(--container-border);
   font-weight: bold;
   text-align: center;
 }
 .notes-list__empty-archived {
+  background-color: var(--container-color);
+  color: var(--font-color);
   max-width: 90%;
   border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 var(--shadow-color);
   margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 24px;
@@ -365,7 +526,7 @@ nav li {
   width: fit-content;
   padding: 10px;
   border-radius: 10px;
-  border: 1px dashed black;
+  border: 1px dashed var(--container-border);
   font-weight: bold;
   text-align: center;
 }
@@ -425,13 +586,15 @@ nav li {
 }
 
 .notes-input {
+  color: var(--font-color);
+  background-color: var(--container-color);
   max-width: 45%;
   padding: 16px;
   margin: 14px auto;
   border-radius: 8px;
   margin-bottom: 32px;
   margin-top: 50px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 var(--shadow-color);
 }
 
 .notes-input h2 {
@@ -443,8 +606,8 @@ nav li {
   width: 30%;
   padding: 8px;
   margin: 0 auto;
-  font-family: 'Inter', sans-serif;
-  border: 1px solid black;
+  font-family: 'Kanit', sans-serif;
+  border: 1px solid var(--input-border-color);
   border-radius: 8px;
   margin-bottom: 11px;
 }
@@ -476,7 +639,7 @@ nav li {
   width: 100%;
   padding: 8px;
   margin: 8px 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Kanit', sans-serif;
   border: 1px solid black;
   border-radius: 8px;
 }
@@ -493,6 +656,7 @@ nav li {
 }
 
 .add-new-page__input__body {
+  background-color: var(--small-container-color);
   resize: none;
   display: block;
   width: 100%;
@@ -502,13 +666,12 @@ nav li {
   margin: 8px 0;
   font-family: 'Inter', sans-serif;
   border-radius: 8px;
-  border: 1px solid black;
+  border: 1px solid var(--input-border-color);
+  outline: none;
 }
 
-.notes-input button {
-  width: 100%;
-  padding: 8px;
-  font-family: 'Inter', sans-serif;
+.add-new-page__input__body:focus {
+  border: 1px solid var(--input-focus-border-color);
 }
 
 .notes-input__edit input {
@@ -559,13 +722,27 @@ nav li {
 .float-translate:hover {
   scale: 1.2;
   background-color: white;
-  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0px 8px 0 var(--shadow-color);
 }
 
 .translate-icon {
   color: white;
   width: 30px;
   height: 30px;
+  transition: 0.3s;
+}
+
+.float-theme {
+  cursor: pointer;
+  position: fixed;
+  width: fit-content;
+  height: fit-content;
+  top: 25px;
+  left: 25px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: 0.3s;
 }
 
@@ -673,14 +850,17 @@ nav li {
 }
 
 .notes-item__body-detailed {
+  background-color: var(--container-color);
   margin-top: 50px;
 }
 
 .notes-item__body-detailed h1 {
+  color: var(--font-color);
   text-align: left;
   margin-bottom: 5px;
 }
 
 .notes-item__body-detailed p {
+  color: var(--font-color);
   font-size: medium;
 }

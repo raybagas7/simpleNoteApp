@@ -9,8 +9,6 @@ const NoteItem = ({
   createdAt,
   archived,
   onDeleteNote,
-  onEditNote,
-  editSubmitNote,
   onArchiveNote,
   onUnarchiveNote,
 }) => {
@@ -22,9 +20,7 @@ const NoteItem = ({
         createdAt={createdAt}
         archived={archived}
         id={id}
-        editSubmitNote={editSubmitNote}
         onDeleteNote={onDeleteNote}
-        onEditNote={onEditNote}
         onArchiveNote={onArchiveNote}
         onUnarchiveNote={onUnarchiveNote}
       />
@@ -38,9 +34,7 @@ NoteItem.propTypes = {
   createdAt: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   archived: PropTypes.bool.isRequired,
   id: PropTypes.string.isRequired,
-  editSubmitNote: PropTypes.func.isRequired,
   onDeleteNote: PropTypes.func.isRequired,
-  onEditNote: PropTypes.func.isRequired,
   onArchiveNote: PropTypes.func,
   onUnarchiveNote: PropTypes.func,
 };

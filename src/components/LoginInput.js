@@ -1,18 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LocaleContext from '../contexts/LocaleContext';
+import useInput from '../hooks/useInput';
 
 const LoginInput = (props) => {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [email, handleEmailChange] = useInput('');
+  const [password, handlePasswordChange] = useInput('');
   const { locale } = React.useContext(LocaleContext);
-
-  const emailChangeHandler = (event) => {
-    setEmail(event.target.value);
-  };
-  const passwordChangeHandler = (event) => {
-    setPassword(event.target.value);
-  };
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
@@ -31,15 +25,15 @@ const LoginInput = (props) => {
           type="email"
           placeholder="Email"
           value={email}
-          onChange={emailChangeHandler}
+          onChange={handleEmailChange}
           required
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder={locale === 'id' ? 'Kata Sandi' : 'Password'}
           autoComplete="current-password"
           value={password}
-          onChange={passwordChangeHandler}
+          onChange={handlePasswordChange}
           required
         />
         <div className="register-button">

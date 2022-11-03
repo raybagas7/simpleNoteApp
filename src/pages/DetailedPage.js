@@ -2,22 +2,16 @@ import React from 'react';
 import { getNote } from '../utils/network-data';
 import { useParams } from 'react-router-dom';
 import NoteDetail from '../components/NoteDetail';
-// import PropTypes from 'prop-types';
-
-// function DetailPageWrapper() {
-//   const { id } = useParams();
-//   return <DetailedPage id={String(id)} />;
-// }
 
 const DetailedPage = () => {
   const { id } = useParams();
   const [note, setNote] = React.useState({});
-  const [initializing, setInitializing] = React.useState(true);
+  const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
     getNote(id).then(({ data }) => {
       setNote(data);
-      setInitializing(false);
+      setLoading(false);
     });
   }, [id]);
 
@@ -25,7 +19,7 @@ const DetailedPage = () => {
     return <h1>Note not found!</h1>;
   }
 
-  if (initializing) {
+  if (loading) {
     return null;
   }
 
@@ -36,7 +30,4 @@ const DetailedPage = () => {
   );
 };
 
-// DetailedPage.propTypes = {
-//   id: PropTypes.string.isRequired,
-// };
 export default DetailedPage;

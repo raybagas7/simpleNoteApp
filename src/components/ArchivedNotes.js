@@ -4,13 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import LocaleContext from '../contexts/LocaleContext';
 
-const ArchivedNotesWrapper = ({
-  notes,
-  editSubmitNote,
-  onDeleteNote,
-  onEditNote,
-  onUnarchiveNote,
-}) => {
+const ArchivedNotesWrapper = ({ notes, onDeleteNote, onUnarchiveNote }) => {
   const { locale } = React.useContext(LocaleContext);
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -26,8 +20,6 @@ const ArchivedNotesWrapper = ({
       activeKeyword={title}
       notes={notes}
       onDeleteNote={onDeleteNote}
-      onEditNote={onEditNote}
-      editSubmitNote={editSubmitNote}
       onUnarchiveNote={onUnarchiveNote}
       locale={locale}
     />
@@ -113,10 +105,7 @@ class ArchivedNotes extends React.Component {
             <NoteItem
               key={note.id}
               id={note.note}
-              edit={note.edit}
               onDeleteNote={this.props.onDeleteNote}
-              onEditNote={this.props.onEditNote}
-              editSubmitNote={this.props.editSubmitNote}
               onUnarchiveNote={this.props.onUnarchiveNote}
               {...note}
             />
@@ -129,9 +118,7 @@ class ArchivedNotes extends React.Component {
 
 ArchivedNotesWrapper.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.object).isRequired,
-  editSubmitNote: PropTypes.func.isRequired,
   onDeleteNote: PropTypes.func.isRequired,
-  onEditNote: PropTypes.func.isRequired,
   onUnarchiveNote: PropTypes.func.isRequired,
 };
 
@@ -139,9 +126,8 @@ ArchivedNotes.propTypes = {
   onSearch: PropTypes.func.isRequired,
   activeKeyword: PropTypes.string,
   notes: PropTypes.arrayOf(PropTypes.object).isRequired,
-  editSubmitNote: PropTypes.func.isRequired,
   onDeleteNote: PropTypes.func.isRequired,
-  onEditNote: PropTypes.func,
   onUnarchiveNote: PropTypes.func,
+  locale: PropTypes.string.isRequired,
 };
 export default ArchivedNotesWrapper;

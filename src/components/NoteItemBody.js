@@ -1,7 +1,5 @@
 import React from 'react';
-// import SubmitEditNote from './SubmitEditNote';
 import DeleteNoteButton from './DeleteNoteButton';
-// import EditNoteButton from './EditNoteButton';
 import ChecklistNoteButton from './ChecklistNoteButton';
 import { showFormattedDate } from '../utils/index';
 import { Link } from 'react-router-dom';
@@ -15,9 +13,7 @@ const NoteItemBody = ({
   body,
   createdAt,
   archived,
-  // editSubmitNote,
   onDeleteNote,
-  // onEditNote,
   onArchiveNote,
   onUnarchiveNote,
 }) => {
@@ -33,7 +29,6 @@ const NoteItemBody = ({
         <div className="notes-item__note">{parser(body)}</div>
         <div className="notes-item__body-button">
           <DeleteNoteButton id={id} onDeleteNote={onDeleteNote} />
-          {/* <EditNoteButton id={id} onEditNote={onEditNote} /> */}
           <ChecklistNoteButton
             id={id}
             archived={archived}
@@ -52,10 +47,7 @@ NoteItemBody.propTypes = {
   createdAt: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   archived: PropTypes.bool.isRequired,
   body: PropTypes.string.isRequired,
-  // edit: PropTypes.bool.isRequired,
-  // editSubmitNote: PropTypes.func.isRequired,
   onDeleteNote: PropTypes.func.isRequired,
-  // onEditNote: PropTypes.func.isRequired,
   onArchiveNote: PropTypes.func,
   onUnarchiveNote: PropTypes.func,
 };

@@ -80,8 +80,13 @@ class InputNote extends React.Component {
   }
 }
 
+InputNoteWrapper.propTypes = {
+  addNote: PropTypes.func.isRequired,
+};
+
 InputNote.propTypes = {
   addNote: PropTypes.func.isRequired,
+  locale: PropTypes.string.isRequired,
 };
 
 export default InputNoteWrapper;

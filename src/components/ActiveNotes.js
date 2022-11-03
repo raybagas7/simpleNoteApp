@@ -4,13 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import LocaleContext from '../contexts/LocaleContext';
 
-const ActiveNotesWrapper = ({
-  notes,
-  editSubmitNote,
-  onDeleteNote,
-  onEditNote,
-  onArchiveNote,
-}) => {
+const ActiveNotesWrapper = ({ notes, onDeleteNote, onArchiveNote }) => {
   const { locale } = React.useContext(LocaleContext);
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -25,9 +19,7 @@ const ActiveNotesWrapper = ({
       onSearch={changeSearchParams}
       activeKeyword={title}
       notes={notes}
-      editSubmitNote={editSubmitNote}
       onDeleteNote={onDeleteNote}
-      onEditNote={onEditNote}
       onArchiveNote={onArchiveNote}
       locale={locale}
     />
@@ -108,10 +100,7 @@ class ActiveNotes extends React.Component {
               <NoteItem
                 key={note.id}
                 id={note.id}
-                // edit={note.edit}
                 onDeleteNote={this.props.onDeleteNote}
-                onEditNote={this.props.onEditNote}
-                editSubmitNote={this.props.editSubmitNote}
                 onArchiveNote={this.props.onArchiveNote}
                 {...note}
               />
@@ -125,9 +114,7 @@ class ActiveNotes extends React.Component {
 
 ActiveNotesWrapper.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.object).isRequired,
-  editSubmitNote: PropTypes.func.isRequired,
   onDeleteNote: PropTypes.func.isRequired,
-  onEditNote: PropTypes.func.isRequired,
   onArchiveNote: PropTypes.func.isRequired,
 };
 
@@ -135,9 +122,7 @@ ActiveNotes.propTypes = {
   onSearch: PropTypes.func.isRequired,
   activeKeyword: PropTypes.string,
   notes: PropTypes.arrayOf(PropTypes.object).isRequired,
-  editSubmitNote: PropTypes.func.isRequired,
   onDeleteNote: PropTypes.func.isRequired,
-  onEditNote: PropTypes.func.isRequired,
   onArchiveNote: PropTypes.func.isRequired,
 };
 export default ActiveNotesWrapper;
