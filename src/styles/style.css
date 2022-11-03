@@ -176,7 +176,7 @@ nav li {
 }
 
 .notes-item {
-  height: 240px;
+  height: 265px;
   width: 360px;
   display: flex;
   align-items: center;
@@ -209,7 +209,7 @@ nav li {
 
 .notes-item:hover .notes-item__note {
   -webkit-line-clamp: 4;
-  height: 95px;
+  height: 115px;
 }
 
 .notes-list__contain-active {
